@@ -162,10 +162,11 @@ function tier1number(logNum) {
 }
 function tier2illionPrefix(num, vers) {
 // vers = 0: right before illion, 1: tier-1 separator, 2: tier-2 separator
-	var ones = ["","milli","micro","nano","pico","femto","atto","zepto","yocto","xono"];
-	var ones2 = ["","mill","micr","nan","pic","femt","att","zept","yoct","xon"];
+	var ones = ["","milli","micro","nano","pico","femto","atto","zepto","yocto","ronto"];
+	var ones2 = ["","mill","micr","nan","pic","femt","att","zept","yoct","ront"];
 	var ones3 = ["","me","due","trio","tetre","pente","hexe","hepte","octe","enne"];
 	var teens = ["vec","mec","duec","trec","tetrec","pentec","hexec","heptec","octec","ennec"];
+	var teens2 = ["quect","mec","duec","trec","tetrec","pentec","hexec","heptec","octec","ennec"];
 	var tens = ["","","icos","triacont","tetracont","pentacont","hexacont","heptacont","octacont","ennacont"];
 	var hundreds = ["","hect","dohect","triahect","tetrahect","pentahect","hexahect","heptahect","octahect","ennahect"];
 	var numberName = "";
@@ -188,7 +189,7 @@ function tier2illionPrefix(num, vers) {
 		if (vers == 1) {numberName += "o"};
 		if (vers == 2) {numberName += "e"};
 	} else if (num >= 10) {
-		numberName += teens[num%10];
+		numberName += teens2[num%10];
 		if (vers == 1) {numberName += "o"};
 		if (vers == 2) {numberName += "e"};
 	} else {
@@ -390,11 +391,11 @@ function tier2number(loglogNum) {
 }
 function tier3illionPrefix(num, vers) {
 // vers = 0: right before illion, 1: tier-2 separator, 2: tier-3 separator, 3: after kal
-	var ones = ["","kill","meg","gig","ter","pet","ex","zett","yott","xenn"];
-	var ones2 = ["k","ken","cod","ctr","cter","cpet","kect","czet","kyot","cxen"]; // for ik-, trak-, tek-
-	var ones3 = ["t","ten","tod","tr","ter","pet","tect","zet","yot","xen"]; // for ho-, bo-
+	var ones = ["","kill","meg","gig","ter","pet","ex","zett","yott","ronn"];
+	var ones2 = ["k","ken","cod","ctr","cter","cpet","kect","czet","kyot","cron"]; // for ik-, trak-, tek-
+	var ones3 = ["t","ten","tod","tr","ter","pet","tect","zet","yot","ron"]; // for ho-, bo-
 	var ones4 = ["","","d","tr","t","p","ex","z","y","n"] // for kal-, mej-, gij
-	var ones5 = ["","en","od","tr","ter","pet","ect","zet","yot","xen"]; // after kal-
+	var ones5 = ["","en","od","tr","ter","pet","ect","zet","yot","ron"]; // after kal-
 	var teens = ["dak","hend","dok","tradak","tedak","pedak","exdak","zedak","yodak","nedak"];
 	var teens2 = ["dak","tend","dok","tradak","tedak","pedak","texdak","zedak","yodak","nedak"]; // for ho-, bo-
 	var tens = ["","","i","tra","te","pe","exa","za","yo","ne"];
@@ -417,6 +418,8 @@ function tier3illionPrefix(num, vers) {
 		numberName += tens[Math.floor((num/10)%10)] + ones2[num%10];
 	} else if (num >= 10) {
 		numberName += teens[num%10];
+	} else if (num == 10) {
+		numberName = "quett";
 	} else if (vers == 3) {
 		numberName += ones5[num%10];
 	} else if (vers == 2) {
