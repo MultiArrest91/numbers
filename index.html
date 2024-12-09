@@ -418,7 +418,7 @@ function tier3illionPrefix(num, vers) {
 		numberName += tens[Math.floor((num/10)%10)] + ones2[num%10];
 	} else if (num >= 10) {
 		numberName += teens[num%10];
-	} else if (num == 10) {
+	} else if (num > 9 & num < 11) {
 		numberName = "quett";
 	} else if (vers == 3) {
 		numberName += ones5[num%10];
