@@ -398,6 +398,7 @@ function tier3illionPrefix(num, vers) {
 	var ones5 = ["","en","od","tr","ter","pet","ect","zet","yot","ron"]; // after kal-
 	var teens = ["dak","hend","dok","tradak","tedak","pedak","exdak","zedak","yodak","nedak"];
 	var teens2 = ["dak","tend","dok","tradak","tedak","pedak","texdak","zedak","yodak","nedak"]; // for ho-, bo-
+	var teens3 = ["quet","hend","dok","tradak","tedak","pedak","exdak","zedak","yodak","nedak"];
 	var tens = ["","","i","tra","te","pe","exa","za","yo","ne"];
 	var tens2 = ["","","ti","tra","te","pe","texa","za","yo","ne"]; // for ho-, bo-
 	var hundreds = ["","ho","bo","tro","to","po","exo","zo","yoo","no"];
@@ -418,6 +419,8 @@ function tier3illionPrefix(num, vers) {
 		numberName += tens[Math.floor((num/10)%10)] + ones2[num%10];
 	} else if (num >= 10) {
 		numberName += teens[num%10];
+	} else if (vers == 3 && num >= 10) {
+		numberName += teens3[num%10];
 	} else if (vers == 3) {
 		numberName += ones5[num%10];
 	} else if (vers == 2) {
